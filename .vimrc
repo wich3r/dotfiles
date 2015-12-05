@@ -17,6 +17,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'bling/vim-airline'
 Plugin 'KabbAmine/zeavim.vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'joshdick/onedark.vim'
 " autorun dla nerdtree
 " autocmd VimEnter * NERDTree
 
@@ -26,9 +28,9 @@ syntax on
 
 set t_Co=256
 
-"set background=light
-"colorscheme PaperColor
 
+"set background=light
+"colorscheme base16-chalk
 
 
 " }}}
@@ -44,7 +46,7 @@ let g:airline_powerline_fonts = 1
 set noshowmode
 set laststatus=2
 
-let g:airline_theme = 'papercolor'
+let g:airline_theme = 'onedark'
   if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
   endif
@@ -79,7 +81,7 @@ augroup END
 set encoding=utf-8
 set colorcolumn=80
 set background=dark
-colorscheme PaperColor
+colorscheme onedark
 set tabstop=4
 set shiftwidth=4
 set mouse=a
