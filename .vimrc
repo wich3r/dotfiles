@@ -1,7 +1,7 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 Plugin 'gmarik/vundle'
@@ -19,6 +19,8 @@ Plugin 'bling/vim-airline'
 Plugin 'KabbAmine/zeavim.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'joshdick/onedark.vim'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'Shirk/vim-gas'
 " autorun dla nerdtree
 " autocmd VimEnter * NERDTree
 
@@ -27,6 +29,7 @@ filetype plugin indent on
 syntax on
 
 set t_Co=256
+let base16colorspace=256  " Access colors present in 256 colorspace"
 
 
 "set background=light
@@ -46,7 +49,7 @@ let g:airline_powerline_fonts = 1
 set noshowmode
 set laststatus=2
 
-let g:airline_theme = 'onedark'
+let g:airline_theme = 'base16'
   if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
   endif
@@ -81,7 +84,8 @@ augroup END
 set encoding=utf-8
 set colorcolumn=80
 set background=dark
-colorscheme onedark
+
+colorscheme base16-atelierforest
 set tabstop=4
 set shiftwidth=4
 set mouse=a
