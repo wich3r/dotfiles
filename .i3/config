@@ -18,7 +18,9 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
+# font pango:DejaVu Sans Mono 1
+
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -148,10 +150,12 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 #windows assigments to certain workspaces
-assign [class="(?i)spotify"] $workspace10
+
+assign [class="spotify"] $workspace10
 assign [class="(?i)vlc"] $workspace7
 assign [class="(?i)thunderbird"] $workspace8
 assign [class="(?i)deluge"] $workspace9
+assign [class="(?i)Spotify"] $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -159,6 +163,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+#battery statys
+bindsym XF86Battery exec gnome-power-statistics
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -189,29 +196,51 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-set $bg-color #2f343f
+set $bg-color #073642
 set $inactive-bg-color #2f343f
-set $text-color #f3f4f5
+set $text-color #eee8d5
 set $inactive-text-color #676E7D
+
+#white colors
+set $braz-color #002b36 
+set $zielen-color #073642
+set $krem-text	#eee8d5
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #ff0000
-client.unfocused        $iancative-bg-color $inactive-bg-color $inactive-text-color #ff0000
+client.focused          $zielen-color     $zielen-color    $krem-text         #ff0000
+client.unfocused        $braz-color         $braz-color        $krem-textr #ff0000
 
 # bar
 bar {
-  font pango:DejaVu Sans Mono, Icons 8
     status_command i3blocks -c /home/wich3r/.i3/i3blocks.conf
+#	status_command i3status
+	position bottom
+#font pango:DejaVu Sans Mono, Icons 8
+	font pango:Droid Sans Mono Dotted for Powerline, Icons 7
 	  colors {
-	  	  background $bg-color
-	      separator #757575
+	  	  background $braz-color
+	      separator $krem-text
 	      #                  border             background text
-	      focused_workspace  $bg-color          $bg-color          $text-color
-	   	  inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-	  	  urgent_workspace   $inactive-bg-color $inactive-bg-color $inactive-text-color
-	    }
+	      focused_workspace  $zielen-color      $zielen-color    $krem-text
+	   	  inactive_workspace $braz-color $braz-color $krem-text
+	  	  urgent_workspace   $braz-color $braz-color $krem-text
+		  }
 	}
+
+
+
+#bar {
+#    status_command    python ~/.i3/configi3.py 
+#    position          bottom
+#    workspace_buttons yes
+#}
+
+bar{
+	i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh
+	position top
+}
+
 
 
 #Set the notification to appear as it should instead of a separate tiling window
@@ -219,7 +248,7 @@ for_window [class="Xfce4-notifyd" instance="xfce4-notifyd"] floating enable
 for_window [class="Xfce4-notifyd" instance="xfce4-notifyd"] border none
 
 # i3-gaps
-for_window [class="^."] border pixel 0
+for_window [class="^."] border pixel 3
 
 gaps inner 10
 smart_gaps on
@@ -263,5 +292,7 @@ exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
 exec --no-startup-id thunderbird
 
-#wallpaper 
-exec_always --no-startup-id feh --bg-fill /home/wich3r/Pictures/5601.jpg
+#wallpaper
+
+exec_always --no-startup-id feh --bg-fill /home/wich3r/Pictures/work/WHA_cam_wheels.jpg
+
