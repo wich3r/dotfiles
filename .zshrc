@@ -5,10 +5,14 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="bullet-train"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# base16 Shell
+ BASE16_SHELL="$HOME/.config/base16-shell/base16-mocha.dark.sh"
+ [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -82,3 +86,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

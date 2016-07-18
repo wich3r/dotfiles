@@ -21,6 +21,8 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'Shirk/vim-gas'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline-themes'
 " autorun dla nerdtree
 " autocmd VimEnter * NERDTree
 
@@ -33,7 +35,7 @@ let base16colorspace=256  " Access colors present in 256 colorspace"
 
 
 "set background=light
-"colorscheme base16-chalk
+"colorscheme solarized
 
 
 " }}}
@@ -49,7 +51,7 @@ let g:airline_powerline_fonts = 1
 set noshowmode
 set laststatus=2
 
-let g:airline_theme = 'base16'
+let g:airline_theme = 'solarized'
   if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
   endif
@@ -83,9 +85,9 @@ augroup END
 " Options {{{
 set encoding=utf-8
 set colorcolumn=80
-set background=dark
+set background=light
 
-colorscheme base16-atelierforest
+colorscheme solarized
 set tabstop=4
 set shiftwidth=4
 set mouse=a
